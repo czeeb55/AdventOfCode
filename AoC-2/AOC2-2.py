@@ -22,6 +22,7 @@ for noun in range(100):
         result = processCode(input)
         if result == 19690720:
             print('Desired noun: ' + str(noun) + '. Desired verb: ' + str(verb))
+            exit() # Stop processing
 
 
 
