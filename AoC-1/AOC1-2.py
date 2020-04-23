@@ -4,6 +4,17 @@ def calculateFuel(mass):
     fuel = fuel - 2 
     return fuel
 
+def calculateFuelAdvanced(mass):
+    total = 0 # Total fuel for the component
+    fuel =  calculateFuel(mass) # Get initial fuel requirements
+    while fuel > 0: # Calculate fuel needed for the fuel
+        total += fuel # Sum up. If the calculated fuel in the next line is 0 or negative, it won't reach this point and get added.
+        subfuel = calculateFuel(fuel)
+        fuel = subfuel
+    return total
+
+
+
 # Each person given unique list of 100 values
 ship = [76542,
 97993,
@@ -108,6 +119,6 @@ ship = [76542,
 
 sum =0
 for component in ship:
-    
-    sum += calculateFuel(component)
+    fuel = calculateFuelAdvanced(component)
+    sum += fuel
 print(sum)
